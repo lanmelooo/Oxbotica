@@ -1,7 +1,3 @@
-import colorama
-from colorama import Fore, Style
-print(Fore.BLUE + "Hello World")
-
 def calculate() -> 'str':
     """
     Write a solution in the most concise way possible in a programming language of your choice. Write a short program
