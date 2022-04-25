@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "351b09cd-7094-4c79-8d91-a765c85e99ea",
+		"name": "Oxbotica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find pet by ID {pet id}",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}/pet/:petId",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet",
+						":petId"
+					],
+					"variable": [
+						{
+							"key": "petId",
+							"value": "2",
+							"description": "Required ID pet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updates a pet in the store with form data {pet id}",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "aika branca",
+							"description": "Update name pet",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"description": "Update status pet",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base}}/pet/:petId",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet",
+						":petId"
+					],
+					"variable": [
+						{
+							"key": "petId",
+							"value": "2",
+							"description": "Required Id pet needs to be updated"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletes a pet {pet id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/pet/:petId",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet",
+						":petId"
+					],
+					"variable": [
+						{
+							"key": "petId",
+							"value": "2",
+							"description": "Required pet Id to delete"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Uploads an image {pet id}",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "additionalMetadata",
+							"value": "aaaaaa",
+							"description": "Additional data to pass to server",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"description": "file to upload",
+							"type": "file",
+							"src": "/C:/Users/lostt/OneDrive/Área de Trabalho/image.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base}}/pet/:petId/uploadImage",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet",
+						":petId",
+						"uploadImage"
+					],
+					"variable": [
+						{
+							"key": "petId",
+							"value": "9",
+							"description": "Required ID pet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new pet to the store",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2,\r\n  \"category\": {\r\n    \"id\": 2,\r\n    \"name\": \"aika\"\r\n  },\r\n  \"name\": \"aika\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"aika\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/pet",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing pet",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 9,\r\n    \"name\": \"terrorblade\",\r\n    \"photoUrls\": [],\r\n    \"tags\": [\r\n        {\r\n            \"id\": 9,\r\n            \"name\": \"terrorblade\"\r\n        }\r\n    ],\r\n    \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base}}/pet",
+					"host": [
+						"{{base}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finds Pets by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pet/findByStatus?status=available",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "available"
+						},
+						{
+							"key": "status",
+							"value": "pending",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "sold",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "https://petstore.swagger.io/v2"
+		},
+		{
+			"key": "baseUrl",
+			"value": "petstore.swagger.io/v2"
+		}
+	]
+}
